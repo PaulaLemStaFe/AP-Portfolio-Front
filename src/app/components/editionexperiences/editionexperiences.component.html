@@ -1,0 +1,160 @@
+<!-- trabajo section -->
+<section class="sec_experiences" id="h_experiences">
+    <div class="experiences">
+        <h2 class="heading"><strong><i>Experiencias Laborales</i></strong>
+            <button type="button" class="icon btn btn-info" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addExperienceModal">
+                <a class="add" alt="Agregar" title="Agregar">
+                    <i class="bi bi-plus-square-fill icons"><span class="sr-only"></span></i>
+                </a>
+            </button>
+        </h2>
+  
+        <div class="accordion" id="accordionExample" id="main-container">
+            <div class="accordion-item" *ngFor="let experience of experiences">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">{{experience.enterpriseExperience}}</button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="icons">
+                            <button class="icon edit btn btn-success" (click)="onOpenModal('edit', experience)" data-bs-toggle="modal" data-bs-target="#editExperienceModal">
+                                <a alt="Editar" title="Editar">
+                                    <i class="bi bi-pencil-fill icons"></i>
+                                </a>
+                            </button>
+                            <button class="icon btn btn-danger" (click)="onOpenModal('delete', experience)" data-bs-toggle="modal" data-bs-target="#deleteExperienceModal">
+                                <a alt="Eliminar" title="Eliminar">
+                                    <i class="bi bi-trash-fill icons"></i>
+                                </a>    
+                            </button>
+                        </div>
+                        <p><b>Fecha:</b> {{experience.dateExperience}}</p>
+                        <h4>Trabajo Desempeñado:</h4>
+                        <p>{{experience.descriptionExperience}}</p>
+                    </div>
+                </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Trabajo Independiente</button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                        <p><b>Fecha:</b> Desde el día 01 del mes de Agosto del año 2015 hasta Actualidad.</p>
+                        <ul>
+                            <li>Administrando, junto con compañeros y compañeras de curso, distintos grupos de estudio a través de la aplicación Telegram.</li>
+                            <li>RealRealizando trabajos de costura y diseño y confección de prendas de manera particular. Realizo pequeñas modificaciones a distintas prendas, pequeños arreglos, y también rediseñando y reutilizando telas para la confección de distintos accesorios como mantas, bolsos, cortinas, etc.–</li>
+                            <li>Realizando bijouterie artesanal, todo trabajado con pinzas.</li>
+                            <li>Administrando distintos grupos de Compra Venta tanto por Facebook, por WhatsApp y hasta por Telegram.</li>
+                            <li>Realicé trabajo de entrega de volantes bajo puerta así como entrevistas presenciales y a través de un call center.</li>
+                            <li>Temporalmente trabajé de secretaria en una pequeña empresa de cadeteria haciendo las siguientes tareas:
+                                <ul>
+                                    <li>Atender a los clientes a través del teléfono.</li>
+                                    <li>Coordinando los viajes y el costo del servicio junto con los cadetes.</li>
+                                    <li>Promocionando la empresa a través de las distintas redes sociales.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Add Certificate aria-hidden="true" -->
+            <div class="modal fade" id="addExperienceModal" tabindex="-1" role="dialog" aria-labelledby="addExperienceModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addExperienceModalLabel">Añadir Experiencia Laboral</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form #addForm="ngForm" (ngSubmit)="onAddExperience(addForm)">
+                                <div class="form-group">
+                                    <label for="enterpriseExperience">Empresa:</label>
+                                    <input type="text" ngModel name="enterpriseExperience" class="form-control" id="enterpriseExperience" placeholder="Empresa" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateExperience">Fecha:</label>
+                                    <input type="text" ngModel name="dateExperience" class="form-control" id="dateExperience" placeholder="Fecha" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="descriptionExperience">Trabajo Desempeñado:</label>
+                                    <input type="text" ngModel name="descriptionExperience" class="form-control" id="descriptionExperience" placeholder="Trabajo Desempeñado" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">
+                                        Añadir Cambios
+                                    </button>
+                                    <button type="button" id="add-experience-form" class="btn btn-danger" data-bs-dismiss="modal">
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal Edit Certificate -->
+            <div class="modal fade" id="editExperienceModal" tabindex="-1" role="dialog" aria-labelledby="editExperienceModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editExperienceModalLabel">Editar Experiencia Laboral {{ editExperience?.enterpriseExperience }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form #editForm="ngForm">
+                                <input type="hidden" ngModel="{{ editExperience?.idExperience }}" name="idExperience" class="form-control" id="idExperience" placeholder="">
+                                <div class="form-group">
+                                    <label for="enterpriseExperience">Empresa:</label>
+                                    <input type="text" ngModel="{{ editExperience?.enterpriseExperience }}" name="enterpriseExperience" class="form-control" id="enterpriseExperience" placeholder="Empresa" aria-describedby="emailHelp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateExperience">Fecha:</label>
+                                    <input type="text" ngModel="{{ editExperience?.dateExperience }}" name="dateExperience" class="form-control" id="dateExperience" placeholder="Fecha">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descriptionExperience">Trabajo Desempeñado:</label>
+                                    <input type="text" ngModel="{{ editExperience?.descriptionExperience }}" name="descriptionExperience" class="form-control" id="descriptionExperience" placeholder="Trabajo Desempeñado" aria-describedby="emailHelp">
+                                </div>
+                                <div class="modal-footer">
+                                    <button (click)="onEditExperience(editForm.value)" type="button" class="btn btn-success">
+                                        Guardar Cambios
+                                    </button>
+                                    <button type="button" id="edit-experience-form" class="btn btn-danger" data-bs-dismiss="modal">
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal Delete Certificate -->
+            <div class="modal fade" id="deleteExperienceModal" tabindex="-1" role="dialog" aria-labelledby="deleteExperienceModalLabel" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#deleteModelLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteExperienceModalLabel">Borrar Experiencia Laboral</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Estás seguro de borrar la experiencia laboral {{ deleteExperience?.enterpriseExperience }}?</p>
+                            <div class="modal-footer">
+                                <button (click)="onDeleteExperience(deleteExperience!.idExperience)" data-bs-dismiss="modal" class="delete btn btn-danger">
+                                    Si
+                                </button>
+                                <button type="button" id="delete-experience-form" class="delete btn btn-success" data-bs-dismiss="modal">
+                                    No
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,70 @@
+<!-- project section -->
+<section class="projects_section" id="projects-section">
+    <h2 class="heading">Mis Proyectos</h2>
+
+    
+    <div class="project_card">
+        <img src="https://acortar.link/vPsfdf" class="project_img" alt="Primer Proyecto">
+        <div class="project_content">
+            <h1 class="project_title">Primer Proyecto</h1>
+            <p class="project_info">Tesis Final De Secundaria. Como pasé varios años por fuera del ambiente informático, no he realizado grandes proyectosen estos años desde que terminé mis estudios secundarios. Mi primer gran proyecto (el cual realicé con la ayuda de dos compañeros) fue el de realizar un Sistema Informático para un puesto en el Mercado de Abasto de mi localidad, el cual consistía en controlar todo lo relacionado a las compras y ventas (realizando las altas y bajas de los productos a través de una base de datos), también emisión de comprobantes (lo que sería la emisión de Boletas A), y en donde había una base de datos que contenía toda la información relacionada a los clientes y otra relacionada a los proveedores. Lamentablemente, con el paso de los años se ha perdido la información digital de este proyecto pero cuento en mi poder con el Manual de Usuario (como se acostumbraba a realizar en esos años) del proyectos con mayores detalles de lo realizado en este gran proyecto.</p>
+        </div>
+    </div>
+    <div class="projects_container">
+        <div class="project_card" *ngFor="let project of projects">
+            <img [src]="project.urlImgProject" class="project_img" [alt]="project.titleProject" [title]="project.titleProject">
+            <div class="project_content">
+                <h3 class="project_title">{{project.titleProject}}</h3>
+                <p class="project_info">{{project.textProject}}</p>
+                <div class="project_btn_grp">
+                    <button class="project_btn repo"><a [href]="project.btn01UrlProject" target="_blank" rel="noopener noreferrer">Repo</a></button>
+                    <button class="project_btn see"><a [href]="project.btn02UrlProject" target="_blank" rel="noopener noreferrer">Ver</a></button>
+                </div>
+            </div>
+        </div>
+        <!--<div class="project_card proyect_5">
+            <img src="https://acortar.link/HGgX4F" class="project_img" alt="Quinto Proyecto">
+            <div class="project_content">
+                <h3 class="project_title">Quinto Proyecto</h3>
+                <p class="project_info">Challenge Oracle ONE a través de la plataforma Alura LATAM: Front - End. Este tercer challenge consistió en realizar un Portafolio cumpliendo con una serie de requisitos y desde un archivo base en donde luego cada uno podía darle el formato y estilo deseado. Y donde era nuestro trabajo realizar todo el código de JavaScript para que la página funcionara según lo requerido.</p>
+                <div class="project_btn_grp">
+                    <button class="project_btn repo"><a href="https://github.com/PaulaLemStaFe/Portafolio_OOA" target="_blank" rel="noopener noreferrer">Repo</a></button>
+                    <button class="project_btn see"><a href="https://paulalemstafe.github.io/Portafolio_OOA/" target="_blank" rel="noopener noreferrer">Ver</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="project_card">
+            <img src="https://acortar.link/SdqV4f" class="project_img" alt="Cuarto Proyecto">
+            <div class="project_content">
+                <h3 class="project_title">Cuarto Proyecto</h3>
+                <p class="project_info">Challenge Oracle ONE a través de la plataforma Alura LATAM: Principiante en programación. Este segundo challenge consistió en realizar un Juego Del Ahorcado cumpliendo con una serie de requisitos y desde un archivo base en donde luego cada uno podía darle el formato y estilo deseado. Y donde era nuestro trabajo realizar todo el código de JavaScript para que la página funcionara según lo requerido.</p>
+                <div class="project_btn_grp">
+                    <button class="project_btn repo"><a href="https://github.com/PaulaLemStaFe/Segundo-Challenge-Ahorcado" target="_blank" rel="noopener noreferrer">Repo</a></button>
+                    <button class="project_btn see"><a href="https://paulalemstafe.github.io/Segundo-Challenge-Ahorcado/" target="_blank" rel="noopener noreferrer">Ver</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="project_card proyecto_3">
+            <img src="https://acortar.link/Sai8nd" class="project_img" alt="Tercer Proyecto">
+            <div class="project_content">
+                <h3 class="project_title">Tercer Proyecto</h3>
+                <p class="project_info">Challenge Oracle ONE a través de la plataforma Alura LATAM: Principiante en programación. Este primer challenge consistió en realizar un Encriptador / Desencriptador cumpliendo con una serie de requisitos y desde un archivo base en donde luego cada uno podía darle el formato y estilo deseado. Y donde era nuestro trabajo realizar todo el código de JavaScript para que la página funcionara según lo requerido.</p>
+                <div class="project_btn_grp">
+                    <button class="project_btn repo"><a href="https://github.com/PaulaLemStaFe/Primer-Challenge-Encriptador" target="_blank" rel="noopener noreferrer">Repo</a></button>
+                    <button class="project_btn see"><a href="https://paulalemstafe.github.io/Primer-Challenge-Encriptador/" target="_blank" rel="noopener noreferrer">Ver</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="project_card">
+            <img src="https://acortar.link/iTFjhf" class="project_img" alt="Segundo Proyecto">
+            <div class="project_content">
+                <h3 class="project_title">Segundo Proyecto</h3>
+                <p class="project_info">Portfolio (el que estás observando en estos momentos). Proyecto realizado miestras curso #YoProgramo del plan Argentina Programa. Éste está hecho combinando los típicos lenguajes utilizados para la realización de páginas web: HTML, CSS y JavaSceript. Al cual con el avance del curso le he ido agregando más detalles de estilo y de configuraciones para que el ususario pueda editar el portfolio generando así dinamismo.</p>
+                <div class="project_btn_grp">
+                    <button class="project_btn repo"><a href="https://github.com/PaulaLemStaFe/Mi_Portfolio_AP_Base" target="_blank" rel="noopener noreferrer">Repo</a></button>
+                    <button class="project_btn see"><a href="https://paulalemstafe.github.io/Mi_Portfolio_AP_Base/" target="_blank" rel="noopener noreferrer">Ver</a></button>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</section>

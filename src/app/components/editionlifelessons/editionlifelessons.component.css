@@ -1,0 +1,48 @@
+/* ------ SECTION'S ------ */
+section {
+    align-items: center;
+    background: url(https://acortar.link/JdY45T) repeat;
+    display: flex;
+    width: 100%;
+}
+
+/* ------ OHER KNOWS SECTION ------ */
+.sec_life_lessons {
+    background-color: #78bbbb;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+    font-size: 1.8em;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    top: 0;
+    z-index: 999;
+}
+
+.sec_life_lessons .heading {
+    font-size: 1.8em;
+    font-style: italic;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#lifelessons p {
+    font-size: 0.7em;
+    margin-bottom: 10px;
+    margin: 0% 3%;
+    text-align: justify;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .sec_life_lessons .heading {
+        font-size: 1.3em;
+    }
+    #lifelessons p {
+        font-size: 0.5em;
+        padding: 10px;
+    }
+}

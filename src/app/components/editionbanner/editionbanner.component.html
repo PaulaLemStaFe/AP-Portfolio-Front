@@ -1,0 +1,82 @@
+<div class="banner_user" *ngIf="user">
+    <section class="secbanner_user">
+        <div id="user">
+            <!--iria mi nombre y profesion la puedo poner sobre el banner o debajo del mismo-->
+            <h1 id="start"><strong><i>{{user.nameUser}}</i></strong></h1>
+            <h2><strong><i>{{user.titleUser}}</i></strong></h2>
+        </div>
+        <div class="profile_img">
+            <!--imagen circularubicada en la esquina inferior izquierda del banner-->
+            <img [src]="user.urlImgprofileUser" [alt]="user.nameUser" [title]="user.nameUser" align="right">
+        </div>
+        <div class="icon_banner">
+            <button class="icon edit btn btn-success" (click)="onOpenModal('edit', user)" data-bs-toggle="modal" data-bs-target="#editUserModal">
+                <a alt="Editar" title="Editar" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+            </button>
+        </div>
+    </section>
+    
+    <section class="sec_whoiam">
+        <!--parrafo o texto describiendo un poco de mi que iría en la parte del cuerpo de la pagina-->
+        <div id="whoiam">
+            <h2 class="heading"><strong><i>¿Quién Soy?</i></strong></h2>
+            <br>
+            <p class="whoiam_text">{{user.text01User}}
+                <br>
+                <br>{{user.text02User}}
+                <br>
+                <br>{{user.text03User}}
+            </p>
+        </div>
+    </section>
+</div>
+
+<!-- Modal Edit Certificate -->
+<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" ngModel="{{ editUser?.idUser }}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateUserModalLabel">Editar Usuario {{ editUser?.nameUser }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <div class="form-group">
+                        <label for="titleCertificate">Nombre:</label>
+                        <input type="text" ngModel="{{ editUser?.nameUser }}" name="nameUser" class="form-control" id="nameUser" placeholder="Nombre Completo" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="titleCertificate">Profesión:</label>
+                        <input type="text" ngModel="{{ editUser?.titleUser }}" name="titleUser" class="form-control" id="titleUser" placeholder="Profesión" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="urlImgprofileUser">Url De La Foto De Perfil:</label>
+                        <input type="text" ngModel="{{ editUser?.urlImgprofileUser }}" name="urlImgprofileUser" class="form-control" id="urlImgprofileUser" placeholder="Url De La Foto De Perfil">
+                    </div>
+                    <div class="form-group">
+                        <label for="text01User">Primer Párrafo:</label>
+                        <input type="text" ngModel="{{ editUser?.text01User }}" name="text01User" class="form-control" id="text01User" placeholder="Primer Párrafo" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="text02User">Segundo Párrafo:</label>
+                        <input type="text" ngModel="{{ editUser?.text02User }}" name="text02User" class="form-control" id="text02User" placeholder="Segundo Párrafo" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="text03User">Tercer Párrafo:</label>
+                        <input type="text" ngModel="{{ editUser?.text03User }}" name="text03User" class="form-control" id="text03User" placeholder="Tercer Párrafo">
+                    </div>
+                    <div class="modal-footer">
+                        <button (click)="onEditUser(editForm.value)" type="button" class="btn btn-success">
+                            Guardar Cambios
+                        </button>
+                        <button type="button" id="edit-user-form" class="btn btn-danger" data-bs-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

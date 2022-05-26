@@ -1,0 +1,59 @@
+/* ------ SECTION'S ------ */
+footer {
+    background: url(https://acortar.link/JdY45T) repeat;
+}
+
+/* ------ SOCIAL SECTION ------ */
+.nav_social_media {
+    background-color: #4c5057;
+    bottom: 0;
+    margin: 0 auto;
+    position: fixed;
+    text-align: center;
+    width: 87%;
+    z-index: 100;
+}
+
+.rights {
+    bottom: 0;
+    color: #F6EDD8;
+    font-size: 1.2em;
+}
+
+.rights p {
+    margin-bottom: 0px;
+}
+
+.nav_social_media ul {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.nav_social_media li {
+    display: inline;
+    font-size: 1.2em;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
+
+.nav_social_media .linkedin, .nav_social_media .github {
+    padding-right: 5%;
+} 
+
+.nav_social_media a {
+    color: #F6EDD8;
+    text-decoration: none;
+}
+
+hr {
+    margin: 0.3rem 0;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .nav_social_media {
+        width: 100%;
+    }
+}

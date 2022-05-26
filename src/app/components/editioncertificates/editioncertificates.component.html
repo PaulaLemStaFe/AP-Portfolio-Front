@@ -1,0 +1,214 @@
+<!-- certificados section -->
+<section class="certificates" id="h_certificates">
+    <div id="certificates-info">
+        <h2 class="heading"><strong><i>Certificados</i></strong>
+            <button type="button" class="icon btn btn-info" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addCertificateModal">
+                <a class="add" alt="Agregar" title="Agregar">
+                    <i class="bi bi-plus-square-fill icons"><span class="sr-only"></span></i>
+                </a>
+            </button>
+        </h2>
+    </div>
+    <div class="certificates_list row" id="main-container">
+        <div class="certificates_list_item col-sm-3" *ngFor="let certificate of certificates">
+            <img class="certificates_list_img column_img d-block w-100" [src]="certificate.urlImgCertificate" [alt]="certificate.titleCertificate" [title]="certificate.titleCertificate">
+            <h3 class="certificates_list_title column_title" id="columna_1">{{certificate.titleCertificate}}</h3>
+            <p class="certificates_list_text">{{certificate.obtainedCertificate}}</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success" (click)="onOpenModal('edit', certificate)" data-bs-toggle="modal" data-bs-target="#editCertificateModal">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger" (click)="onOpenModal('delete', certificate)" data-bs-toggle="modal" data-bs-target="#deleteCertificateModal">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Add Certificate aria-hidden="true" -->
+        <div class="modal fade" id="addCertificateModal" tabindex="-1" role="dialog" aria-labelledby="addCertificateModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addCertificateModalLabel">Añadir Certificado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #addForm="ngForm" (ngSubmit)="onAddCertificate(addForm)">
+                            <div class="form-group">
+                                <label for="urlImgCertificate">Url De La Imagen:</label>
+                                <input type="text" ngModel name="urlImgCertificate" class="form-control" id="urlImgCertificate" placeholder="Url de la Imagen" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="titleCertificate">Título:</label>
+                                <input type="text" ngModel name="titleCertificate" class="form-control" id="titleCertificate" placeholder="Título" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="obtainedCertificate">Obtenido:</label>
+                                <input type="text" ngModel name="obtainedCertificate" class="form-control" id="obtainedCertificate" placeholder="En curso o fecha de adquirido el Certificado" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">
+                                    Añadir Cambios
+                                </button>
+                                <button type="button" id="add-certificate-form" class="btn btn-danger" data-bs-dismiss="modal">
+                                    Cerrar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Edit Certificate -->
+        <div class="modal fade" id="editCertificateModal" tabindex="-1" role="dialog" aria-labelledby="editCertificateModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editCertificateModalLabel">Editar Certificado {{ editCertificate?.titleCertificate }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #editForm="ngForm">
+                            <input type="hidden" ngModel="{{ editCertificate?.idCertificate }}" name="idCertificate" class="form-control" id="idCertificate" placeholder="">
+                            <div class="form-group">
+                                <label for="urlImgCertificate">Url De La Imagen:</label>
+                                <input type="text" ngModel="{{ editCertificate?.urlImgCertificate }}" name="urlImgCertificate" class="form-control" id="urlImgCertificate" placeholder="Url de la Imagen">
+                            </div>
+                            <div class="form-group">
+                                <label for="titleCertificate">Título:</label>
+                                <input type="text" ngModel="{{ editCertificate?.titleCertificate }}" name="titleCertificate" class="form-control" id="titleCertificate" placeholder="Título" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="obtainedCertificate">Obtenido:</label>
+                                <input type="text" ngModel="{{ editCertificate?.obtainedCertificate }}" name="obtainedCertificate" class="form-control" id="obtainedCertificate" placeholder="En curso o fecha de adquirido el Certificado">
+                            </div>
+                            <div class="modal-footer">
+                                <button (click)="onEditCertificate(editForm.value)" type="button" class="btn btn-success">
+                                    Guardar Cambios
+                                </button>
+                                <button type="button" id="edit-certificate-form" class="btn btn-danger" data-bs-dismiss="modal">
+                                    Cerrar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Delete Certificate -->
+        <div class="modal fade" id="deleteCertificateModal" tabindex="-1" role="dialog" aria-labelledby="deleteCertificateModalLabel" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#deleteModelLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteCertificateModalLabel">Borrar Certificado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de borrar el certificado {{ deleteCertificate?.titleCertificate }}?</p>
+                        <div class="modal-footer">
+                            <button (click)="onDeleteCertificate(deleteCertificate!.idCertificate)" data-bs-dismiss="modal" class="delete btn btn-danger">
+                                Si
+                            </button>
+                            <button type="button" id="delete-certificate-form" class="delete btn btn-success" data-bs-dismiss="modal">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="certificates_list_item col-sm-3">
+            <img class="certificates_list_img column_img" src="https://acortar.link/7M84o7" class="d-block w-100" alt="Oracle - ONE Latam" title="Oracle - ONE Latam">
+            <h3 class="certificates_list_title column_title" id="columna_1">Desarrolladora Front - End</h3>
+            <p class="certificates_list_text">En Curso</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>
+        <div class="certificates_list_item col-sm-3">
+            <img class="certificates_list_img column_img" class="d-block w-100" src="https://acortar.link/19ATkC" alt="Argentina Programa" title="Argentina Programa">
+            <h3 class="certificates_list_title column_title" id="columna_1">Desarrolladora Web Full Stack</h3>
+            <p class="certificates_list_text">En Curso</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>
+        <div class="certificates_list_item col-sm-3">
+            <img class="certificates_list_img column_img" class="d-block w-100" src="https://acortar.link/RUp5iw" alt="ConoSur Tech" title="ConoSur Tech">
+            <h3 class="certificates_list_title column_title" id="columna_1">Curso Introductorio De Internet Y Programación</h3>
+            <p class="certificates_list_text">Diciembre 2021</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>
+        <div class="certificates_list_item col-sm-3">
+            <img class="certificates_list_img column_img" src="https://acortar.link/trraDp" alt="i2T Soluciones Informáticas" title="i2T Soluciones Informáticas">
+            <h3 class="certificates_list_title column_title" id="columna_1">Bootcamp i2T Sé Programar</h3>
+            <p class="certificates_list_text">Agosto - Septiembre 2021</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>
+        <div class="certificates_list_item col-sm-3">
+            <img class="certificates_list_img column_img" src="https://acortar.link/PKAni4" alt="E.E.T. N° 322" title="E.E.T. N° 322">
+            <h3 class="certificates_list_title column_title" id="columna_1">Técnica En Computación Y Programación</h3>
+            <p class="certificates_list_text">Título Secundario 2000</p>
+            <div class="icons">
+                <button class="icon edit btn btn-success">
+                    <a alt="Editar" title="Editar">
+                        <i class="bi bi-pencil-fill icons"></i>
+                    </a>
+                </button>
+                <button class="icon btn btn-danger">
+                    <a alt="Eliminar" title="Eliminar">
+                        <i class="bi bi-trash-fill icons"></i>
+                    </a>    
+                </button>
+            </div>
+        </div>-->
+    </div>
+</section>

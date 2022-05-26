@@ -1,0 +1,56 @@
+/* ------ SECTION'S ------ */
+section {
+    align-items: center;
+    background: url(https://acortar.link/JdY45T) repeat;
+    display: flex;
+    width: 100%;
+}
+
+/* ------ SKILL'S SECTION ------ */
+.soft_skills {
+    background-color: #e6e1d0;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+    color: #383a3c;
+    flex-direction: column;
+    font-size: 1.8em;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.soft_skills .heading {
+    font-size: 1.8em;
+    font-style: italic;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.soft_skills_col_1, .soft_skills_col_2 {
+    font-size: 0.7em;
+}
+
+.soft_skills_col_1 li, .soft_skills_col_2 li{
+    padding: 0.2em;
+}
+
+hr {
+    margin: 0.3rem 0;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .soft_skills .heading {
+        font-size: 1.3em;
+    }
+    .soft_skills .row {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .soft_skills_col_1, .soft_skills_col_2 {
+        font-size: 0.5em;
+    }
+}

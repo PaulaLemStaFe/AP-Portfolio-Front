@@ -1,0 +1,28 @@
+<div class="banner_user" *ngIf="user">
+    <section class="secbanner_user">
+        <div id="user">
+            <!--iria mi nombre y profesion la puedo poner sobre el banner o debajo del mismo-->
+            <h1 id="start"><strong><i>{{user.nameUser}}</i></strong></h1>
+            <h2><strong><i>{{user.titleUser}}</i></strong></h2>
+        </div>
+        <div class="profile_img">
+            <!--imagen circularubicada en la esquina inferior izquierda del banner-->
+            <img [src]="user.urlImgprofileUser" [alt]="user.nameUser" [title]="user.nameUser" align="right">
+        </div>
+    </section>
+</div>
+
+<!-- banner 
+<div class="banner_user">
+    <section class="secbanner_user">
+        <div id="user">
+            <!--iria mi nombre y profesion la puedo poner sobre el banner o debajo del mismo
+            <h1 id="start"><strong><i>Portfolio María Paula Lemos</i></strong></h1>
+            <h2><strong><i>Desarrollo Web Full Stack</i></strong></h2>
+        </div>
+        <div class="profile_img">
+            <!--imagen circularubicada en la esquina inferior izquierda del banner
+            <img src="https://acortar.link/DcnKmR" alt="María Paula Lemos" title="María Paula Lemos" align="right">
+        </div>
+    </section>
+</div>-->

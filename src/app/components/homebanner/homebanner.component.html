@@ -1,0 +1,63 @@
+<div class="banner_user" *ngIf="user">
+    <section class="secbanner_user">
+        <div id="user">
+            <!--iria mi nombre y profesion la puedo poner sobre el banner o debajo del mismo-->
+            <h1 id="start"><strong><i>{{user.nameUser}}</i></strong></h1>
+            <h2><strong><i>{{user.titleUser}}</i></strong></h2>
+        </div>
+        <div class="profile_img">
+            <!--imagen circularubicada en la esquina inferior izquierda del banner-->
+            <img [src]="user.urlImgprofileUser" [alt]="user.nameUser" [title]="user.nameUser" align="right">
+        </div>
+    </section>
+
+    <!-- banner 
+    <div class="banner_user">
+        <section class="secbanner_user">
+            <div id="user">
+                <!--iria mi nombre y profesion la puedo poner sobre el banner o debajo del mismo
+                <h1 id="start"><strong><i>Portfolio María Paula Lemos</i></strong></h1>
+                <h2><strong><i>Desarrollo Web Full Stack</i></strong></h2>
+            </div>
+            <div class="profile_img">
+                <!--imagen circularubicada en la esquina inferior izquierda del banner
+                <img src="https://acortar.link/DcnKmR" alt="María Paula Lemos" title="María Paula Lemos" align="right">
+            </div>
+        </section>
+    </div>-->
+
+    <div class="whoiam" *ngIf="user">
+        <section class="sec_whoiam">
+            <!--parrafo o texto describiendo un poco de mi que iría en la parte del cuerpo de la pagina-->
+            <div id="whoiam">
+                <h2 class="heading"><strong><i>¿Quién Soy?</i></strong></h2>
+                <br>
+                <p class="whoiam_text">{{user.text01User}}
+                    <br>
+                    <br>{{user.text02User}}
+                    <br>
+                    <br>{{user.text03User}}
+                </p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- banner section 
+    <div class="banner_user">
+        <div class="whoiam">
+            <section class="sec_whoiam">
+                <!--parrafo o texto describiendo un poco de mi que iría en la parte del cuerpo de la pagina
+                <div id="whoiam">
+                    <h2 class="heading"><strong><i>¿Quién Soy?</i></strong></h2>
+                    <br>
+                    <p class="whoiam_text">Actualmente tengo 41 años y estoy viviendo en la ciudad de Santa Fe, capital de la provincia de Santa Fe (Argentina). Hoy por hoy me encuentro realizando 2 distintos cursos a la vez, quedando en evidencia que soy muy capaz de organizar y distribuir mis tiempos en distintas tareas.
+                        <br>
+                        <br>En los distintos trabajos que he desarrollado, aprendí las distintas cualidades que poseo. Pero con lo que más me quedo es con los errores cometidos, porque de éstos se aprende mucho más. Ya que fueron impulsos para seguir creciendo y mejorando como persona.
+                        <br>
+                        <br>Las experiencias de vida me dejaron conocimientos sobre coordinación y convivencia de grupos de personas totalmente distintas unas de otras; tanto en edad como en nivel económico y en diversidad de creencias y pensamientos. En resumen, puedo realizar diversas tareas a la vez; y hasta coordinar y organizar un grupo de distintas personas.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>-->
+</div>

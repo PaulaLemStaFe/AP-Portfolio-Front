@@ -1,0 +1,89 @@
+/* ------ SECTION'S ------ */
+section {
+    align-items: center;
+    background: url(https://acortar.link/JdY45T) repeat;
+    display: flex;
+    width: 100%;
+}
+
+/* ------ BANNER AND PROFILE SECTION ------ */
+.banner_user {
+    z-index: 999;
+}
+
+.secbanner_user {
+    align-items: center;
+    background: no-repeat left/cover url(https://acortar.link/KtqcOk);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50px;
+    border-top: 0px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+    display: flex;
+    height: 250px;
+    margin-left: 0px;
+    margin-top: 10px;
+    min-width: 120px;
+    opacity: 0.8;
+    padding-top: 0px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+/* ------ PROFILE PICTURE ------ */
+.profile_img {
+    align-self: flex-end;
+    height: 100%;
+    margin: 0px 0px 0px 0px;
+    width: 25%;
+}
+
+.profile_img img {
+    align-self: flex-end;
+    background-position: right;
+    border-color: #5c5b5b;
+    border-radius: 100%;
+    box-shadow: 10px 18px 20px -10px #7c7b7b;
+    display: flex;
+    margin: 18px;
+    width: 65%;
+}
+
+/* ------ TITTLE'S BANNER ------ */
+#user {
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 0px 0px 0px 0px;
+    margin-left: 20px;
+    text-align: left;
+    text-shadow: #525151 0 0 .05em;
+    width: 75%;
+}
+
+#user h1 {
+    margin-top: -60px;
+    padding-top: 70px;
+}
+
+#user h2 {
+    margin-bottom: 0px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .secbanner_user {
+        height: 150px;
+    }
+    #user {
+        font-size: 0.5em;
+    }
+    #user h1 {
+        padding-top: 30px;;
+    }
+    #user h2 {
+        margin: 0px;
+    }
+}
